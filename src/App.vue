@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <WeatherComponent
+      :city="city"
+      :apiKey="apiKey"
+    />
+    <TemperatureChart
+      :city="city"
+      :apiKey="apiKey"
+    />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import WeatherComponent from './components/WeatherComponent.vue';
+import TemperatureChart from './components/TemperatureChart.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    WeatherComponent,
+    TemperatureChart
+  },
+  data() {
+    return {
+      city: 'London',
+      apiKey: 'd4ca7b13602aa807403d0ca2c7f303da'
+    };
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
